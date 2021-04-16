@@ -3,8 +3,6 @@
 
 ![Image of gunicorn](http://tamadon.net/python/wp-content/uploads/2020/09/Deployment-Strategy-www.tamadon.net_-768x654.jpg)
 
-~~دوتا تیلده      دونقطه (کلون ) برای ایموجی ~~
-
   🤗 🙂
  ##  this is a table  
  No | Name | Description |
