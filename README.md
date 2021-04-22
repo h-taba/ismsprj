@@ -1,7 +1,15 @@
 # isms-prj
 مدیریت  اسناد حهت انجام ممیزی مراقبتی
+https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-20-04
 
 ![Image of gunicorn](http://tamadon.net/python/wp-content/uploads/2020/09/Deployment-Strategy-www.tamadon.net_-768x654.jpg)
+
+```
+sudo apt update
+sudo apt install python3-pip python3-dev libpq-dev postgresql postgresql-contrib nginx curl
+sudo -u postgres psql
+CREATE DATABASE ismsprj;
+
 
   🤗 🙂
  ##  this is a table  
@@ -13,8 +21,15 @@
 - [x] ToDo 1
 - [ ] Todo 2s an incomplete item
 - [ ] 
- 
+
+
  ```
+sudo -H pip3 install --upgrade pip
+sudo -H pip3 install virtualenv
+ub1@ub:~/repo2/ismsdir$ virtualenv venvissprj
+ub1@ub:~/repo2/ismsdir$ source venvissprj/bin/activate
+(venvissprj) ub1@ub:~/repo2/ismsdir$ sudo apt install python3-django
+
  pip install python-decouple
  IN FILE -> myproject/settings.py
     from decouple import config
