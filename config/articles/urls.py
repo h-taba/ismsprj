@@ -5,6 +5,7 @@ from .views import (
     ArticleDetailView, # new
     ArticleDeleteView, # new
     ArticleCreateView, # new
+    Emp1View,
 )
 
 urlpatterns = [
@@ -16,4 +17,5 @@ urlpatterns = [
          ArticleDeleteView.as_view(), name='article_delete'), # new
     path('new/', ArticleCreateView.as_view(), name='article_new'), # new
     path('', ArticleListView.as_view(), name='article_list'),
+    path('emp1/',Emp1View,name='emp1'),
 ]

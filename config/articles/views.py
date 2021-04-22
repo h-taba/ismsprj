@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from django.contrib.auth.mixins import (
     LoginRequiredMixin,
     UserPassesTestMixin # new
@@ -5,7 +6,14 @@ from django.contrib.auth.mixins import (
 from django.views.generic import ListView, DetailView # new
 from django.views.generic.edit import UpdateView, DeleteView, CreateView # new
 from django.urls import reverse_lazy # new
-from .models import Article
+from .models import Article,Employee
+
+
+
+def Emp1View(request):
+    emp1 = Employee.objects.all()
+    context = {"emp1": emp1}
+    return render(request, "emp1.html", context)
 
 
 class ArticleListView(LoginRequiredMixin, ListView):
@@ -46,3 +54,4 @@ class ArticleCreateView(LoginRequiredMixin, CreateView): # new
     def form_valid(self, form): # new
         form.instance.author = self.request.user
         return super().form_valid(form)
+

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}emp1{% endblock title %}
+
+{% block content %}
+  {% for emp in emp1 %}
+  <div class="card">
+    <div class="card-header">
+        aaa
+      </div>
+    <div class="card-body">
+        <span class="font-weight-bold">{{ emp.lastname }} </span> 
+        <span class="font-weight-bold"> {{ emp.firstname }} </span> 
+        <span class="font-weight-bold"> {{ emp.middlename }}</span> 
+    
+      </div>
+    <div class="card-footer">
+        <span class="text-muted"> fullname = {{ emp.full_name }} </span>
+    </div>
+    <!-- Changes end here! -->
+  </div>
+  <br />
+{% endfor %}
+{% endblock content %}

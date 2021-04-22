@@ -1,6 +1,8 @@
+from django.db import models
+from django.contrib import admin
+
 from django.conf import settings
 from django.contrib.auth import get_user_model
-from django.db import models
 from django.urls import reverse
 
 
@@ -89,5 +91,28 @@ class Ismsdoc(models.Model): # new
 
     def get_absolute_url(self):
         return reverse('article_list')
+
+
+
+
+
+class Employee(models.Model):
+    lastname = models.CharField("Last", max_length=64)
+    firstname = models.CharField("First", max_length=64)
+    middlename = models.CharField("Middle", max_length=64)
+    clocknumber = models.CharField(max_length=16)
+
+    def _get_full_name(self):
+        "Returns the person's full name."
+        return '%s-%s-%s' % (self.lastname, self.firstname, self.middlename)
+    full_name = property(_get_full_name)
+
+
+    class Meta:
+        ordering = ['lastname','firstname', 'middlename']
+
+
+
+
 
 
