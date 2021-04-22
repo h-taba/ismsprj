@@ -12,7 +12,6 @@ SECRET_KEY = 'yq@=cjw8z@ssx7_3ukfoi9j3di)m-km8=^x9a))p2)3y-24g%*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ALLOWED_HOSTS = []
 
@@ -20,20 +19,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'users.apps.UsersConfig', # new
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    # 3rd Party
-    'crispy_forms', # new
-
-    # Local
-    'accounts', # new
-    'pages', # new
-    'articles', # new
 ]
 
 MIDDLEWARE = [
@@ -51,7 +43,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [str(BASE_DIR.joinpath('templates'))],
+        'DIRS': [str(BASE_DIR.joinpath('templates'))], # new
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -102,7 +94,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'America/New_York' # new
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -120,14 +112,3 @@ AUTH_USER_MODEL = 'accounts.CustomUser' # new
 
 LOGIN_REDIRECT_URL = 'home' # new
 LOGOUT_REDIRECT_URL = 'home' # new
-
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-DEFAULT_FROM_EMAIL = 'your_custom_email_account'
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'apikey'
-EMAIL_HOST_PASSWORD = 'sendgrid_password'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
