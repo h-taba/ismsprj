@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Article, Comment,Office,Doctypes
+from .models import Article, Comment,Organunit,Doctype,Ismsdoc
 
 
 class CommentInline(admin.TabularInline): # new
@@ -13,6 +13,6 @@ class ArticleAdmin(admin.ModelAdmin): # new
 
 admin.site.register(Article, ArticleAdmin) # new
 admin.site.register(Comment)
-admin.site.register(Office)
-admin.site.register(Doctypes)
-
+admin.site.register(Organunit)
+admin.site.register(Doctype)
+admin.site.register(Ismsdoc)

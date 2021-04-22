@@ -39,7 +39,7 @@ class Comment(models.Model): # new
         return reverse('article_list')
 
 
-class Doctypes(models.Model):
+class Doctype(models.Model):
     title = models.CharField(max_length=255)
     code = models.CharField(max_length=255)
     author = models.ForeignKey(
@@ -54,7 +54,7 @@ class Doctypes(models.Model):
         return reverse('article_detail', args=[str(self.id)])
 
 
-class Office(models.Model):
+class Organunit(models.Model):
     title = models.CharField(max_length=255)
     code = models.CharField(max_length=255)
     author = models.ForeignKey(
@@ -67,3 +67,27 @@ class Office(models.Model):
 
     def get_absolute_url(self):
         return reverse('article_detail', args=[str(self.id)])
+class Ismsdoc(models.Model): # new
+    doctitle = models.CharField(max_length=150)                                             
+    Organunit_fk = models.ForeignKey(
+        Organunit,
+        on_delete=models.CASCADE,
+        related_name='docs_of_office', # new
+    )
+    version =models.IntegerField()
+    serial=models.IntegerField()
+    codeexperision=models.CharField(max_length=20)
+
+    author = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE,
+        related_name='docs_of_auther'
+    )
+
+    def __str__(self):
+        return self.doctitle
+
+    def get_absolute_url(self):
+        return reverse('article_list')
+
+
