@@ -52,3 +52,18 @@ class Doctypes(models.Model):
 
     def get_absolute_url(self):
         return reverse('article_detail', args=[str(self.id)])
+
+
+class Office(models.Model):
+    title = models.CharField(max_length=255)
+    code = models.CharField(max_length=255)
+    author = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE,
+    )
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('article_detail', args=[str(self.id)])
